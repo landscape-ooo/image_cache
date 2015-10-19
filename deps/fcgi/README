@@ -1,0 +1,17 @@
+fastcgi源码
+--------------------
+
+下载页面：
+http://www.fastcgi.com/drupal/node/5
+
+由于fastcgi使用select，select有1024的问题
+image-cache使用的是多线程模式，在线程数较多的时候，fd的最大数值很容易超过1024
+为了突破select 1024的限制，对libfcgi/os_unix.c:OS_Close函数中进行打patch（在进行log replay的时候，这个函数的fdset相关操作会导致core）
+patch文件为：
+select.patch
+
+打patch：
+patch -p0 <select.patch
+
+取消patch：
+patch -R -p0 <select.patch

@@ -1,0 +1,28 @@
+--- fcgi-2.4.1-SNAP-0311112127/libfcgi/os_unix.c	2003-06-22 08:16:43.000000000 +0800
++++ fcgi-2.4.1-SNAP-0311112127/libfcgi/patch/os_unix.c	2013-10-08 16:16:15.000000000 +0800
+@@ -758,18 +758,21 @@
+         if (shutdown(fd, 1) == 0)
+         {
+             struct timeval tv;
+-            fd_set rfds;
++            fd_set rfds[10];
+             int rv;
+             char trash[1024];
+ 
+-            FD_ZERO(&rfds);
++            int i = 0;
++            for (i = 0; i < 10; ++i) {
++              FD_ZERO(rfds + i);
++            }
+ 
+             do 
+             {
+-                FD_SET(fd, &rfds);
++                FD_SET(fd, rfds);
+                 tv.tv_sec = 2;
+                 tv.tv_usec = 0;
+-                rv = select(fd + 1, &rfds, NULL, NULL, &tv);
++                rv = select(fd + 1, rfds, NULL, NULL, &tv);
+             }
+             while (rv > 0 && read(fd, trash, sizeof(trash)) > 0);
+         }

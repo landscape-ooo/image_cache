@@ -1,0 +1,12 @@
+leveldb源码
+---------------------
+
+下载页面：
+https://code.google.com/p/leveldb/
+
+版本：
+1.14.0
+
+直接解压make即可，会生成静态链接库
+
+include下的文件即为头文件

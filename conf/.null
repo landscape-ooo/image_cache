@@ -1,0 +1,19 @@
+server.name = worker001
+server.id = 1
+server.workerthreadnum = 5
+server.fcgithreadnum = 10
+server.configurl =
+
+resource.db = mastersite
+resource.db.capacity.mastersite = 5
+resource.db.ip.mastersite = 192.168.64.4
+resource.db.port.mastersite = 3306
+resource.db.dbname.mastersite = mastersite
+resource.db.dbuser.mastersite = dbdev
+resource.db.dbpwd.mastersite = ganjidev
+
+filters.itemstr = id:1,category:2,city:3,major_category:4,sex:5,salary:6,url:11
+filters.returnitemstr = 1,2,3,4
+filters.rangestr = period:7,8_degree:9,10
+filters.keystr = 3,4,5,6,11
+filters.sleeptime = 1

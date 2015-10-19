@@ -1,0 +1,31 @@
+缩略图缓存服务
+-------------------
+
+缓存生成的缩略图，缓存的key为url
+
+依赖：
+ganji_util
+pcre
+fastcgi
+leveldb
+GraphicsMagick
+thrift
+fastdfs
+
+fastdfs版本为2.13
+leveldb和fastcgi参考deps目录下的leveldb和fcgi
+
+注意查看Makefile，如果依赖的库有目录改动，要相应的改动Makefile
+
+添加使用ssd：
+分别指定leveldb的blob文件的存储路径
+blob文件支持缓存在ssd上，定期进行数据转移,配置ssd上存储的天数
+
+
+Magick++中定义了Warning，所以ulog中的名字不能使用Warning，名字冲突
+可以用g++ -E选项验证
+grep Warning /usr/local/webserver/GraphicsMagick/include/GraphicsMagick/Magick++/Exception.h
+
+由于最初设计的原因，缩略图不在缓存端生出，内存原图fifo不在使用，所以：
+master分支去除了image_handler和内存FIFO，不再依赖GraphicsMagick、fastdfs、pcre
+在full分支中保留了一份可用的最初设计版本

@@ -1,0 +1,2 @@
+#/usr/local/webserver/daemon/bin/daemon --respawn --name pic_server_daemon --pidfiles /home/sunfei/cc_dev/trunk/src/ganji/pic_server_fcgi --chdir /home/sunfei/cc_dev/trunk/src/ganji/pic_server_fcgi --stdout daemon.info --stderr daemon.err -- 
+/usr/local/webserver/spawn-fcgi/bin/spawn-fcgi -a 127.0.0.1 -p 15434 -u sunfei -g sunfei -F 1 -n -f /data/log-replay/cc_dev/trunk/src/ganji/pic_server_fcgi/pic_server_fcgi

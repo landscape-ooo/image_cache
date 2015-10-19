@@ -1,0 +1,5 @@
+#valgrind --trace-children=yes --track-fds=yes -v --leak-check=full --log-file=memcheck /home/mawenlong/work/cc_dev/src/ganji/pic_server_fcgi/bin/pic_server_fcgi
+#valgrind --trace-children=yes --track-fds=yes -v --leak-check=full --log-file=memcheck /usr/local/webserver/spawn-fcgi/bin/spawn-fcgi -a 0.0.0.0 -p 15434 -u nobody -g nobody -F 1 -f /home/mawenlong/work/cc_dev/src/ganji/pic_server_fcgi/bin/pic_server_fcgi
+/usr/local/webserver/spawn-fcgi/bin/spawn-fcgi -a 0.0.0.0 -p 15434 -u nobody -g nobody -F 1 -f ./run.sh
+#/usr/local/webserver/spawn-fcgi/bin/spawn-fcgi -a 0.0.0.0 -p 15434 -u nobody -g nobody -F 1 -f valgrind --tool=memcheck  --show-reachable=yes --trace-children=yes --num-callers=20 --leak-resolution=high --leak-check=full -v --log-file=memcheck /home/mawenlong/work/cc_dev/src/ganji/pic_server_fcgi/bin/pic_server_fcgi
+#valgrind --tool=callgrind --trace-children=yes  /usr/local/webserver/spawn-fcgi/bin/spawn-fcgi -a 0.0.0.0 -p 15434 -u nobody -g nobody -F 1 -f /home/mawenlong/work/cc_dev/src/ganji/pic_server_fcgi/bin/pic_server_fcgi

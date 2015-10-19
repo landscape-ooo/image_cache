@@ -1,0 +1,7 @@
+*.[oa]
+*.swp
+log/
+*.core
+deps/leveldb/leveldb-1.14.0
+deps/fcgi/fcgi-2.4.1-SNAP-0311112127
+*.svn*
